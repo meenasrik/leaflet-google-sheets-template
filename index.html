@@ -1,12 +1,12 @@
 <html>
 <head>
-  <title>Greenville Open Data Map Layer</title>
+  <title>IB Greenville County Schools</title>
   <meta name="description" content="A map layer for Greenville. See data.codeforgreenville.org for more."/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.css" />
   <link rel="stylesheet" href="./map.css" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.js"></script>
-  <script src="https://www.mapquestapi.com/sdk/leaflet/v2.2/mq-map.js?key=bA5WISoAPsk5r0GJ3hHGTkAMFEskFOA2"></script>
+  <script src="https://www.mapquestapi.com/sdk/leaflet/v2.2/mq-map.js?key=ezxMtMZgWluVYogHvcgEgv7bEIds2LIt"></script>
 </head>
 <body>
 	<div id="map">
@@ -18,7 +18,7 @@
     function onEachFeature(feature, layer) {
       // does this feature have a property named popupContent?
       if (feature.properties && feature.properties.title) {
-      	var popuphtml = "<strong>" + feature.properties.title + "</strong><ul><li>Notes: " + feature.properties.notes + "</li><li>Property 3: " + feature.properties.property3 + "</li></ul>";
+      	var popuphtml = "<strong>" + feature.properties.title + "</strong><ul><li>Group: " + feature.properties.group + "</li><li>Program: " + feature.properties.program + "</li><li>Address: " + feature.properties.address + "</li><li>Website: " + feature.properties.website + "</li></ul>";
         layer.bindPopup(popuphtml);
       }
     }
@@ -39,7 +39,7 @@
       map = L.map('map', {
         layers: mapLayer,
         center: [ 34.8507212,-82.3985128 ],
-        zoom: 15
+        zoom: 11
       });
 
       L.control.layers({
